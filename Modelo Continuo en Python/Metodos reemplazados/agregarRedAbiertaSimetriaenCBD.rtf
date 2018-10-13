@@ -1,0 +1,105 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 def agregarRedAbierta(self, n):\
+        #En esta lista se iran guardando las lineas pertenecientes a la red cerrada\
+        lineas = []\
+        #Creamos una copia de las macrozonas de la ciudad para hacerlas propias de la red.\
+        macroZ = \{'PN': macroZona(self.lambdap, self.beta, self.alpha1, 'Periferia Norte'),\
+                  'PS': macroZona(self.lambdap, self.beta, self.alpha2, 'Periferia Sur'),\
+                  'CP': macroZona(self.lambdac, self.beta1, self.R, 'Corredor Poniente'),\
+                  'CBD': macroZona(self.lambdaCBD, self.R1, self.R, 'CBD'),\
+                  'CO': macroZona(self.lambdac, self.beta2, self.R, 'Corredor Oriente')\}\
+        #Agregamos las microzonas segun la cantidad de lineas con la que definimos la red.\
+        self.agregarMicrozonas(n, macroZ)\
+\
+        #recuperamos los rangos de las macrozonas del corredor:\
+        n0 = macroZ['CP'].nMicroZonas\
+        nCBD = macroZ['CBD'].nMicroZonas\
+        nf = macroZ['CO'].nMicroZonas\
+\
+        #Ahora generamos las lineas una a una y las agregamos a la lista. Ocuparemos los rangos recien definidos para ir asignandoles macro y microzonas.\
+        #Ojo que tenemos que hacer lo mismo tanto para las que parten del norte como las del sur.\
+        for i in range(n):\
+            if i < n0:\
+                #Primero las hacemos llegar hasta el CBD completo, luego vamos agregando circuitos libres al oriente del CBD.\
+                mazN = [macroZ['PN'], macroZ['CP'], macroZ['CBD']]\
+                mizN = [macroZ['PN'].microZonas[i]]\
+                mazS = [macroZ['PS'], macroZ['CP'], macroZ['CBD']]\
+                mizS = [macroZ['PS'].microZonas[i]]\
+                for j in range(i, n0):\
+                    mizN.append(macroZ['CP'].microZonas[j])\
+                    mizS.append(macroZ['CP'].microZonas[j])\
+                for j in range(nCBD):\
+                    mizN.append(macroZ['CBD'].microZonas[j])\
+                    mizS.append(macroZ['CBD'].microZonas[j])\
+                #Para ir agregando los circuitos al oriente del CBD, se privilegia la estrategia de lineas largas, es decir, las que parten mas al poniente van agregando las microzonas mas al oriente.\
+                if i < nf:\
+                    mazN.append(macroZ['CO'])\
+                    mazS.append(macroZ['CO'])\
+                    for j in range(nf - i):\
+                        mizN.append(macroZ['CO'].microZonas[j])\
+                        mizS.append(macroZ['CO'].microZonas[j])\
+                    #Tambien se le conecta la periferia final\
+                    mazN.append(macroZ['PS'])\
+                    mizN.append(macroZ['PS'].microZonas[n - i - 1])\
+                    mazS.append(macroZ['PN'])\
+                    mizS.append(macroZ['PN'].microZonas[n - i - 1])\
+                lN = linea(mazN, mizN, False)\
+                lS = linea(mazS, mizS, False)\
+                lineas.append(lN)\
+                lineas.append(lS)\
+            #Luego las lineas perifericas que llegan por CBD se conectan con sus simetricas del sur.\
+            elif i < n0 + nCBD:\
+                mazN = [macroZ['PN'], macroZ['CBD'], macroZ['PS']]\
+                mizN = [macroZ['PN'].microZonas[i]]\
+                mazS = [macroZ['PS'], macroZ['CBD'], macroZ['PN']]\
+                mizS = [macroZ['PS'].microZonas[i]]\
+                if (nCBD % 2 == 0 and i-n0 <= nCBD/2) or (not (nCBD % 2 == 0) and i-n0 <= nCBD/2+1):\
+                    for j in range(i-n0, nCBD-i+n0):\
+                        mizN.append(macroZ['CBD'].microZonas[j])\
+                        mizS.append(macroZ['CBD'].microZonas[j])\
+                mizN.append(macroZ['PS'].microZonas[n0 + nCBD - (i-n0+1)])\
+                mizS.append(macroZ['PN'].microZonas[n0 + nCBD - (i-n0+1)])\
+\
+                lN = linea(mazN, mizN, False)\
+                lS = linea(mazS, mizS, False)\
+                lineas.append(lN)\
+                lineas.append(lS)\
+            #Finalmente si quedan lineas no pareadas al oriente del CBD, se conectan hasta el CBD.\
+            elif i < n0 + nCBD + nf:\
+                if nf > n0 and (i - n0 - nCBD) < (nf - n0):\
+                    mazN = [macroZ['PN'], macroZ['CO'], macroZ['CBD']]\
+                    mizN = [macroZ['PN'].microZonas[i]]\
+                    mazS = [macroZ['PS'], macroZ['CO'], macroZ['CBD']]\
+                    mizS = [macroZ['PS'].microZonas[i]]\
+                    for j in range((i - n0 - nCBD)+1):\
+                        mizN.append(macroZ['CO'].microZonas[j])\
+                        mizS.append(macroZ['CO'].microZonas[j])\
+                    for j in range(nCBD):\
+                        mizN.append(macroZ['CBD'].microZonas[j])\
+                        mizS.append(macroZ['CBD'].microZonas[j])\
+                    lN = linea(mazN, mizN, False)\
+                    lS = linea(mazS, mizS, False)\
+                    lineas.append(lN)\
+                    lineas.append(lS)\
+\
+        #Antes de crear la red debemos asignar el spacing optimo a las microzonas. Habia que esperar hasta este momento para poder tener las lineas.\
+        sp = calcularSpacing(self.tpp, self.gammaV, self.gammaA, self.lambdap, (self.alpha1+self.alpha2)/2.0, self.Cp, 10, self.Va, lineas, False)\
+        sc = calcularSpacing(self.tpc, self.gammaV, self.gammaA, self.lambdac, (self.beta1+self.beta2)/2.0, self.Cp, 10, self.Va, lineas, True)\
+        for maz in macroZ:\
+            if maz == 'PN' or maz=='PS':\
+                for miz in macroZ[maz].microZonas:\
+                    miz.setSpacing(sp)\
+            else:\
+                for miz in macroZ[maz].microZonas:\
+                    miz.setSpacing(sc)\
+        #Con las paradas asignadas a las microzonas, podemos calcular el numero de paradas en una linea\
+        for l in lineas:\
+            l.setParadas()\
+\
+        x = red(lineas, 'Abierta', macroZ, None, self.Vp, self.Vc, self.Va, self.k, self.gammaV, self.gammaA, self.gammaE, sp, sc, self.tpp, self.tpc, self.Cd, self.Cp)\
+        self.red['Abierta'].append(x)}

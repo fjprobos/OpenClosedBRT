@@ -1,0 +1,75 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 def modeloGurobi(red):\
+    '''\
+    Esta funcion es la que crea el modelo de optimizacion de frecuencias para una red. Toma como input la red ya cargada y luego genera/retorna el objeot modelo listo para ser resuelto\
+    :param red: Red abierta o cerrada a optimizar. DEbe ya estar totalmente cargada como para poder obtener los costos.\
+    :return:\
+    '''\
+\
+    #Partimos creando el modelo vacio\
+    model = Model('optFrecuencias')\
+\
+    #Primero le pedimos a la red los objetos que ocuparemos para generar el modelo. En principio los OD y las lineas.\
+    k = red.k\
+    gammaE = red.gammaE\
+    ODs=red.ODs\
+    lineas = red.lineas\
+    if red.tipo == "Cerrado":\
+        lineas.append(red.troncal)\
+\
+    #Ahora creamos diccionarios con datos a utilizar en la funcion objetivo\
+    #Este es el costo que debe ser multiplicado por la frecuencia\
+    CO = \{\}\
+    for l in lineas:\
+        CO[l.ID] = ((l.distanciaCorredor + l.distanciaPeriferia)*red.Cd + (l.paradasCorredor + l.paradasPeriferia)*red.Cp)*2\
+\
+    #Esta es la demanda total de cada OD. Se utilizara para el tiempo de espera inicial\
+    DTotal = \{\}\
+    for od in ODs:\
+        DTotal[od.ID] = od.demandaTotal\
+\
+    #Esta es la demanda indirecta de cada OD. Se utilizara para el tiempo de espera en transferencia\
+    DIndirecta = \{\}\
+    for od in ODs:\
+        DIndirecta[od.ID] = od.demandaIndirecta\
+\
+    #Se definen las variables\
+    f = \{\}\
+    for l in CO:\
+        f[l] = model.addVar(vtype=GRB.CONTINUOUS, obj=CO[l], name=str(l), lb=0)\
+\
+    #Ahora tendremos agregarvariables auxiliares que nos permitiran linealizar la funcion objetivo. Habra un conjunto para tiempos de espera en origen\
+    #y otro para tiempos de espera en transferencia\
+    TEO = \{\}\
+    TET = \{\}\
+    for od in ODs:\
+        TEO[od.ID] = model.addVar(vtype=GRB.CONTINUOUS, obj=gammaE*k*DTotal[od.ID], name="TEO: "+str(od.ID), lb=0)\
+        if not od.ruta[1] == None:\
+            TET[od.ID] = model.addVar(vtype=GRB.CONTINUOUS, obj=gammaE*k*DIndirecta[od.ID], name="TET: "+str(od.ID), lb=0)\
+\
+    model.update()\
+\
+\
+    #Tambien tenemos que agregar las restricciones que nos permiten ocupar estas variables auxiliares\
+    for od in ODs:\
+        feq = QuadExpr()\
+        for l in od.ruta[0]:\
+            feq.add(f[l.ID]*TEO[od.ID])\
+        #model.addQConstr(feq <= 0, "TEOu: "+str(od.ID))\
+        model.addQConstr(feq >= 0.1, "TEOl: "+str(od.ID))\
+        if not od.ruta[1] == None:\
+            feq = QuadExpr()\
+            for l in od.ruta[2]:\
+                feq.add(f[l.ID]*TET[od.ID])\
+            #model.addConstr(feq <= 0, "TETu: "+str(od.ID))\
+            #model.addQConstr(feq >= 0, "TETl: "+str(od.ID))\
+\
+    #Finalmente optimizamos\
+    model.optimize()\
+\
+    return model.status}
