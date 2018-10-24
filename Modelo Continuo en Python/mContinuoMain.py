@@ -1,6 +1,6 @@
 ##Primer modelo continuo optimizacion de red##
 
-from gurobipy import*
+#from gurobipy import*
 from mContinuoClases import*
 from mContinuoGraficos import*
 from mContinuoResultados import*
@@ -23,6 +23,7 @@ delta = 0.09766 #Penalidad por transferencia. Cercano a 5.86 minutos segun Ravea
 Va = 4.5###Buscar una fuente relevante
 Vp = 25.0######Corresponde a los running speed, los cuales solo consideran la velocidad en movimiento. 25 es el promedio entre urbano poco denso, urbano medio y urbano densp en el modelo discreto.
 Vc = 40.0######Velcoidad en Corredor. Lo mismo que fijamos para el modelo discreto.
+#TODO Acá estan los tres parámetros a modificar sobre los tiempos de parada
 tmuertop = 0.00166###Sale de Tirachini al parecer.Incluir en el escrito!!!
 tpp = tmuertop + (Vp)/2*(1/20736.0+1/20736.0)#tiempo de detencion como tmuerto de parada mas demora por aceleracion/desacel
 tpc = tmuertop + (Vc)/2*(1/20736.0+1/20736.0)#Se utilizan unidades de Mkm y hr. De Tiachini 2014.a=1.2m/s^2 es el que utiliza Tirachini.
@@ -74,7 +75,7 @@ for g in range(0, 1):
     n = 13
     contador = 0
     for i in range(n, 14):
-        print 'Corriendo n='+str(i)
+        print('Corriendo n='+str(i))
         #city.agregarRedAbierta(i)
         city.agregarRedCerrada(i)
         #opA = optimiScipy(city.red['Abierta'][contador])
@@ -104,48 +105,47 @@ for g in range(0, 1):
 
     for j in range(0, len(nombreRedes)):
         for r in city.red[nombreRedes[j]]:
-            print '#######################################################################################################################'
-            print r.tipo+"-n= "+str(len(r.lineas))
+            print('#######################################################################################################################')
+            print(r.tipo+"-n= "+str(len(r.lineas)))
             ###INFO LINEAS###
             for l in r.lineas:
-                print "ID"+str(l.ID)
-                print "Capacidad Bus: "+str(l.cargaMaxima)
-                print "Flota: "+str(l.flota)
-                print "ASK: "+str(l.ASK)
-                print "RPK: "+str(l.RPK)
-                print "FO: "+str(l.FOPromedio)
-                print "Ida"
+                print("ID"+str(l.ID))
+                print("Capacidad Bus: "+str(l.cargaMaxima))
+                print("Flota: "+str(l.flota))
+                print("ASK: "+str(l.ASK))
+                print("RPK: "+str(l.RPK))
+                print("FO: "+str(l.FOPromedio))
+                print("Ida")
                 for mz in l.microZonas:
-                    print mz.ID+": "+str(l.infoCarga['Ida'][0][mz.ID])+"-"+str(l.infoCarga['Ida'][1][mz.ID])+"-"+str(l.infoCarga['Ida'][2][mz.ID])+"-"+str(l.infoCarga['Ida'][3][mz.ID])+"-tParada: "+str(l.tiemposParada['Ida'][mz.ID])+";",
-                print
-                print "Vuelta"
+                    print(mz.ID+": "+str(l.infoCarga['Ida'][0][mz.ID])+"-"+str(l.infoCarga['Ida'][1][mz.ID])+"-"+str(l.infoCarga['Ida'][2][mz.ID])+"-"+str(l.infoCarga['Ida'][3][mz.ID])+"-tParada: "+str(l.tiemposParada['Ida'][mz.ID])+";",)
+                print("Vuelta")
                 for mz in l.microZonas:
-                    print mz.ID+": "+str(l.infoCarga['Vuelta'][0][mz.ID])+"-"+str(l.infoCarga['Vuelta'][1][mz.ID])+"-"+str(l.infoCarga['Vuelta'][2][mz.ID])+"-"+str(l.infoCarga['Vuelta'][3][mz.ID])+"-tParada: "+str(l.tiemposParada['Vuelta'][mz.ID])+";",
-                print
-                print " f: "+str(l.f)#", dp: "+str(l.distanciaPeriferia)+", pp: "+str(l.paradasPeriferia)+", dc: "+str(l.distanciaCorredor)+", pc: "+str(l.paradasCorredor)+", CostoLinea: "+str(r.CostosLineas[l.ID])
+                    print(mz.ID+": "+str(l.infoCarga['Vuelta'][0][mz.ID])+"-"+str(l.infoCarga['Vuelta'][1][mz.ID])+"-"+str(l.infoCarga['Vuelta'][2][mz.ID])+"-"+str(l.infoCarga['Vuelta'][3][mz.ID])+"-tParada: "+str(l.tiemposParada['Vuelta'][mz.ID])+";",)
+
+                print(" f: "+str(l.f))#", dp: "+str(l.distanciaPeriferia)+", pp: "+str(l.paradasPeriferia)+", dc: "+str(l.distanciaCorredor)+", pc: "+str(l.paradasCorredor)+", CostoLinea: "+str(r.CostosLineas[l.ID])
 
             ##INFOR MACROZONAS
-            #print "n= "+str(n)+", CP= "+str(r.macroZonas['CP'].nMicroZonas)+", demanda= "+str(r.macroZonas['CP'].anchoEfectivo*r.macroZonas['CP'].largo*r.macroZonas['CP'].densidadDemanda),
-            #print ", CBD= "+str(r.macroZonas['CBD'].nMicroZonas)+", demanda= "+str(r.macroZonas['CBD'].anchoEfectivo*r.macroZonas['CBD'].largo*r.macroZonas['CBD'].densidadDemanda),
-            #print ", CO= " + str(r.macroZonas['CO'].nMicroZonas)+", demanda= "+str(r.macroZonas['CO'].anchoEfectivo*r.macroZonas['CO'].largo*r.macroZonas['CO'].densidadDemanda)
+            #print("n= "+str(n)+", CP= "+str(r.macroZonas['CP'].nMicroZonas)+", demanda= "+str(r.macroZonas['CP'].anchoEfectivo*r.macroZonas['CP'].largo*r.macroZonas['CP'].densidadDemanda),
+            #print(", CBD= "+str(r.macroZonas['CBD'].nMicroZonas)+", demanda= "+str(r.macroZonas['CBD'].anchoEfectivo*r.macroZonas['CBD'].largo*r.macroZonas['CBD'].densidadDemanda),
+            #print(", CO= " + str(r.macroZonas['CO'].nMicroZonas)+", demanda= "+str(r.macroZonas['CO'].anchoEfectivo*r.macroZonas['CO'].largo*r.macroZonas['CO'].densidadDemanda)
             #directa = 0
             #dem0 = 0
             #for od in r.ODs:
             #    if(od.destino.MZ=='CBD'):
-            #        print "ID: "+str(od.ID)+" Demanda: "+str(od.demandaTotal)+", "
+            #        print("ID: "+str(od.ID)+" Demanda: "+str(od.demandaTotal)+", "
             #     if od.origen.ID=="PN1":
             #         dem0 += od.demandaTotal
-            #print r.macroZonas['PN'].microZonas[1].demandaO
-            #print dem0
-            #print "DemandaAtraidaCBD= "+str(suma)
-            #print "CostoOperacionTotal = "+str(r.CostoOperacion)
-            #print "CostoViajeTotal = "+str(r.CostoTotaltViaje)
-            #print "CostoEsperaTotal = "+str(r.CostoTotaltEspera)
-            #print "CostoAccesoTotal = "+str(r.CostoTotaltAcceso)
-            #print "CostoTransferenciaTotal = "+str(r.CostoTotaltTransferencia)
-            #print "Espera Total = "+str(r.CostoTotaltTransferencia+r.CostoTotaltEspera)
-            #print "Costo Total = "+str(r.CostoTotal)
-            #print "Demanda Directa = "+str(directa)
+            #print(r.macroZonas['PN'].microZonas[1].demandaO
+            #print(dem0
+            #print("DemandaAtraidaCBD= "+str(suma)
+            #print("CostoOperacionTotal = "+str(r.CostoOperacion)
+            #print("CostoViajeTotal = "+str(r.CostoTotaltViaje)
+            #print("CostoEsperaTotal = "+str(r.CostoTotaltEspera)
+            #print("CostoAccesoTotal = "+str(r.CostoTotaltAcceso)
+            #print("CostoTransferenciaTotal = "+str(r.CostoTotaltTransferencia)
+            #print("Espera Total = "+str(r.CostoTotaltTransferencia+r.CostoTotaltEspera)
+            #print("Costo Total = "+str(r.CostoTotal)
+            #print("Demanda Directa = "+str(directa)
 
             ##DATOS PARA GRAFICOS
             if j == 0:

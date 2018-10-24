@@ -1,6 +1,6 @@
 __author__ = 'Pancho'
 
-from gurobipy import*
+#from gurobipy import*
 from scipy.optimize import minimize
 from math import*
 
@@ -347,7 +347,7 @@ def numeroMicrozonas(R1, beta, beta1, n):
     nTeoCBD = float(n)*float(R1)/float(beta)
     distMin = beta
     nEfectivoCBD = 0
-    for i in range(1, n/2):
+    for i in range(1, int(n/2)):
         dist = ((i - nTeoCBD)**2)**(0.5)
         if dist < distMin:
             nEfectivoCBD = i
@@ -463,7 +463,7 @@ def fo(red):
         #print 'Total:'+str(suma)+'-CO:'+str(CO)+"-CE:"+str(CE)+"-CT:"+str(CT)+"-CP:"+str(CP)
         #return suma
         #Probemos simplemente retornando el total del costo de la red
-        print red.iteracion
+        print (red.iteracion)
         return red.CostoTotal
 
     return (f, dicLineas)
