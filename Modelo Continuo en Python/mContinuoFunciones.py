@@ -297,20 +297,27 @@ def calcularSpacing(tp, gammaV, gammaA, lambdaa, largo, at, bt, Va, lineas, esCo
     #Primero calculamos parametros promedio para el spacing
     sumaCapacidades = 0
     sumaFrecuencias = 0
+    sumaASK = 1
+    sumaRPK = 0
+
     for l in lineas:
         sumaFrecuencias += l.f
         sumaCapacidades += l.cargaMaxima
+        sumaASK += l.ASK
+        sumaRPK += l.RPK
 
     if esCorredor:
         f = (sumaFrecuencias/len(lineas))*(len(lineas)+1)/2.0#Esta formula viene de la utilizada en modelo discreto.
         K = sumaCapacidades/len(lineas)
-        Q = lambdaa*largo/(f*2.0)#TODO verificar valores que toma esta carga promedio mirando los fo y perfiles de carga.
+        Q = sumaRPK/sumaASK*K
+#        Q = lambdaa*largo/(f*2.0) version old
         s = ((f*tp*(at + bt*K + gammaV*Q))/((gammaA*lambdaa)/(4*Va)))**(0.5)
 
     else:
         f = sumaFrecuencias/len(lineas)
         K = sumaCapacidades/len(lineas)
-        Q = lambdaa*largo/(f*2.0)
+        Q = sumaRPK / sumaASK * K
+#        Q = lambdaa*largo/(f*2.0) version old
         s = ((f*tp*(at + bt*K + gammaV*Q))/((gammaA*lambdaa)/(4*Va)))**(0.5)
 
     return s

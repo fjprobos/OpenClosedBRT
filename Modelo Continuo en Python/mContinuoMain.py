@@ -25,12 +25,13 @@ Vp = 25.0######Corresponde a los running speed, los cuales solo consideran la ve
 Vc = 40.0######Velcoidad en Corredor. Lo mismo que fijamos para el modelo discreto.
 #TODO Acá estan los tres parámetros a modificar sobre los tiempos de parada
 tmuertop = 0.00166###Sale de Tirachini al parecer.Incluir en el escrito!!!
-tpp = tmuertop + (Vp)/2*(1/20736.0+1/20736.0)#tiempo de detencion como tmuerto de parada mas demora por aceleracion/desacel
-tpc = tmuertop + (Vc)/2*(1/20736.0+1/20736.0)#Se utilizan unidades de Mkm y hr. De Tiachini 2014.a=1.2m/s^2 es el que utiliza Tirachini.
+tpp = tmuertop + (Vp)*(1/15552.0+1/15552.0)*(1-1/2)#tiempo de detencion como tmuerto de parada mas demora por aceleracion/desacel menos el tiempo que hubiese ganado si no hubiese parado, es decir, la distancia de frenado y aceleracion a velocidad libre
+tpc = tmuertop + (Vc)*(1/15552.0+1/15552.0)*(1-1/2)#Se utilizan unidades de Mkm y hr. De Tiachini 2014.a=1.2m/s^2 es el que utiliza Tirachini.
 gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
 gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
 gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
-k = 0.5
+k = 0.8 #Constante para tiempo de espera en paraderos. Se hace sensibilidad respecto a este parámetro.
+k_troncal = 0.6
 theta = 0.1 #Coeficiente que se utiliza en la funcion de costos para el modelo de distribucion. Varia
 rhop = 0.4 #Porcentaje de viajes atraidos por la periferia
 rhoc = 0.3 #Porcentaje de viajes atraidos por el corredor
@@ -47,6 +48,7 @@ nivelRiqueza = (0.5, 2)#Parametro de nivel de riqueza de la ciudad. Multiplicara
 nivelDemandaTotal = (0.5, 2, 4)#Multiplicador de la demanda total de la ciudad. Multiplica los parametros de densidad de generacion en la sensibilidad.
 nivelTheta = (0, 0.5, 1.5, 2, 3)#Multiplicador de la sensibilidad de la demanda ante el largo de los viajes. En parte, indica largo de viajes.
 nivelDelta = (0, 0.5, 1.5, 2, 3)
+nivelKEspera = (1, 1.2, 1.4, 1.6, 1.8, 2.0) #Ponderadores para sensibilidad erespecto a la constante de espera
 
 ciudades = []
 
@@ -67,20 +69,22 @@ for g in range(0, 1):
     #lambdap = lambdap*nivelDemandaTotal[g]
     #lambdac = lambdac*nivelDemandaTotal[g]
     #lambdaCBD = lambdaCBD*nivelDemandaTotal[g]
+    #k = k*nivelKEspera[g]
 
     city = ciudad(lambdap, lambdac, lambdaCBD, R, R1, beta, beta1, alpha, alpha1, Va, Vp, Vc, tpp, tpc, delta,
-                  gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable)
+                  gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable,
+                  k_troncal)
 
     #resultadosNLineas(city)
-    n = 13
+    n = 5
     contador = 0
-    for i in range(n, 14):
+    for i in range(n, 26):
         print('Corriendo n='+str(i))
-        #city.agregarRedAbierta(i)
+        city.agregarRedAbierta(i)
         city.agregarRedCerrada(i)
-        #opA = optimiScipy(city.red['Abierta'][contador])
+        opA = optimiScipy(city.red['Abierta'][contador])
         opC = optimiScipy(city.red['Cerrada'][contador])
-        #city.red['Abierta'][contador].actualizarFrecuencias(opA[0], opA[1])
+        city.red['Abierta'][contador].actualizarFrecuencias(opA[0], opA[1])
         city.red['Cerrada'][contador].actualizarFrecuencias(opC[0], opC[1])
         #resultadosRed(city.red['Abierta'][contador],'ResFinalesPrueba1n'+str(n))
         contador += 1
@@ -166,13 +170,13 @@ for g in range(0, 1):
             n += 1
 
     #Crear Graficos
-#    for nred in range(3, 3+len(city.red['Abierta'])):
-#        crearExcelRed(city.red['Abierta'][nred-3], 'ResultadosRed_Base_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
+    for nred in range(3, 3+len(city.red['Abierta'])):
+        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V3.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
     for nred in range(3, 3+len(city.red['Cerrada'])):
-        crearExcelRed(city.red['Cerrada'][nred-3], 'ResultadosRed_Base_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
-#    crearExcelnLineas('nLineasResultados_Caso_Base_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
-#    ciudades.append(city)
-#crearExcelCiudades(ciudades)
+        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V3.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
+    crearExcelnLineas('nLineasResultados_Caso_BaseNewQ&K_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
+    ciudades.append(city)
+crearExcelCiudades(ciudades)
 
 #TODO Resolver el Bug cuando el nCBD es relativamente muy grande. Al parecer el problema esta cuando se empiezan a parear las microzonas del CO.-> Para magnitudes modeladas no alcanza a ser problema. Se arreglara en casod e ser necesario.
 #TODO Verificar de alguna forma que las cargas de pasajeros en buses se estan haciendo correctamente.

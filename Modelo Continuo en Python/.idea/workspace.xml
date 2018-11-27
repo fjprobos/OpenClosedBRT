@@ -22,8 +22,8 @@
       <file leaf-file-name="mContinuoMain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
+            <state relative-caret-position="304">
+              <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
               <folding>
                 <element signature="e#71#99#0" expanded="true" />
               </folding>
@@ -34,7 +34,7 @@
       <file leaf-file-name="mContinuoGraficos.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7293">
+            <state relative-caret-position="345">
               <caret line="429" column="49" selection-start-line="429" selection-start-column="49" selection-end-line="429" selection-end-column="49" />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="mContinuoFunciones.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="351" column="26" lean-forward="true" selection-start-line="351" selection-start-column="26" selection-end-line="351" selection-end-column="26" />
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding>
                 <element signature="e#46#81#0" expanded="true" />
               </folding>
@@ -55,8 +55,8 @@
       <file leaf-file-name="mContinuoResultados.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="-1389">
+              <caret line="73" column="16" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="16" />
               <folding>
                 <element signature="e#23#51#0" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
       <file leaf-file-name="mContinuoClases.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3064">
-              <caret line="801" column="12" selection-start-line="801" selection-start-column="6" selection-end-line="801" selection-end-column="12" />
+            <state relative-caret-position="-13473">
+              <caret line="386" column="35" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
               <folding>
                 <element signature="e#23#54#0" expanded="true" />
               </folding>
@@ -80,8 +80,25 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>print</find>
+      <find>calcularSpacing</find>
+      <find>calcularspa</find>
+      <find>asignarCa</find>
+      <find>lambdac</find>
       <find>ciudad</find>
+      <find>macroZon</find>
+      <find>lambda</find>
+      <find>espera</find>
+      <find>optimi</find>
+      <find>OD</find>
+      <find>ODs</find>
+      <find>lambdap</find>
+      <find />
+      <find>calcularTiempoEspera</find>
+      <find>calcularSpa</find>
+      <find>optimiSci</find>
+      <find>minimiz</find>
+      <find>print</find>
+      <find>minimi</find>
     </findStrings>
     <replaceStrings>
       <replace>print(</replace>
@@ -96,14 +113,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/mContinuoFunciones.py" />
+        <option value="$PROJECT_DIR$/mContinuoClases.py" />
         <option value="$PROJECT_DIR$/mContinuoMain.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="21" />
-    <option name="width" value="1280" />
-    <option name="height" value="775" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="110" />
+    <option name="y" value="-25" />
+    <option name="width" value="1750" />
+    <option name="height" value="970" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -133,7 +152,43 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
+              <item name="scipy" type="462c0819:PsiDirectoryNode" />
+              <item name="optimize" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,15 +394,15 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0925314" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12888302" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.43923867" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.329429" />
-      <window_info anchor="bottom" x="255" y="181" width="934" height="625" id="Run" order="5" weight="0.38213763" />
+      <window_info active="true" anchor="bottom" x="255" y="181" width="934" height="625" id="Run" order="5" visible="true" weight="0.38176638" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.26647145" />
-      <window_info active="true" anchor="bottom" id="Debug" order="2" visible="true" weight="0.33760685" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39173788" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32962668" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -361,20 +416,20 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14296874" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.4172767" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" x="255" y="181" width="934" height="625" id="Run" order="5" weight="0.40625" />
       <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="2" visible="true" weight="0.42045453" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.26647145" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.329429" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32962668" />
     </layout-to-restore>
   </component>
@@ -393,72 +448,20 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/mContinuoResultados.py</url>
+          <url />
           <line>77</line>
           <option name="timeStamp" value="158" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mContinuoMain.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mContinuoMain.py</url>
-          <line>81</line>
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mContinuoMain.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="169" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/mContinuoMain.py</url>
-          <line>170</line>
-          <option name="timeStamp" value="170" />
+          <url />
+          <line>541</line>
+          <option name="timeStamp" value="196" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="171" />
+      <option name="time" value="199" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
-          <folding>
-            <element signature="e#71#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="644" column="45" selection-start-line="644" selection-start-column="45" selection-end-line="644" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1107" column="30" selection-start-line="1107" selection-start-column="30" selection-end-line="1107" selection-end-column="30" />
-          <folding>
-            <element signature="e#23#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -765,30 +768,6 @@
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/gurobipy/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7293">
-          <caret line="429" column="49" selection-start-line="429" selection-start-column="49" selection-end-line="429" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="e#23#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3417">
-          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -824,30 +803,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
+    <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/_minimize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="351" column="26" lean-forward="true" selection-start-line="351" selection-start-column="26" selection-end-line="351" selection-end-column="26" />
-          <folding>
-            <element signature="e#46#81#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1555" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/zipfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1208" selection-start-line="1208" selection-end-line="1208" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3064">
-          <caret line="801" column="12" selection-start-line="801" selection-start-column="6" selection-end-line="801" selection-end-column="12" />
+        <state relative-caret-position="-13473">
+          <caret line="386" column="35" selection-start-line="386" selection-start-column="35" selection-end-line="386" selection-end-column="35" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1389">
+          <caret line="73" column="16" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="16" />
+          <folding>
+            <element signature="e#23#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/cobyla.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1836" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/optimize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="1189" column="17" selection-start-line="1189" selection-start-column="12" selection-end-line="1189" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <element signature="e#46#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="429" column="49" selection-start-line="429" selection-start-column="49" selection-end-line="429" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
+        <state relative-caret-position="304">
+          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
           <folding>
             <element signature="e#71#99#0" expanded="true" />
           </folding>

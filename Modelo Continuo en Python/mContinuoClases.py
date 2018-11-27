@@ -58,7 +58,9 @@ class microZona(macroZona):
         self.lugarCorredor = lugarCorredor
         self.spacing = 0
         self.paradas = 0
-
+        self.MZ_corredor = False
+        if MZ[0] == 'C':
+            self.MZ_corredor = True
     # Aca definimos el operador les than "<" para microzona, a modo de comparar ubicaciones entre ellas.
     def __lt__(self, other):
         return self.lugarCorredor < other.lugarCorredor
@@ -86,13 +88,14 @@ class OD(object):
     3)Lista con las lineas que salen del nodo de transferencia al destino. Si hay viajes directos, celdas 2 y 3 estan en None.
     """
 
-    def __init__(self, origen, destino, demandaTotalRed, Vp, Vc, Va, k, tpp, tpc, tipo, delta):
+    def __init__(self, origen, destino, demandaTotalRed, Vp, Vc, Va, k, tpp, tpc, tipo, delta, k_troncal, brt_cerrado):
         self.origen = origen
         self.destino = destino
         self.Vp = Vp
         self.Vc = Vc
         self.Va = Va
         self.k = k
+        self.k_troncal = k_troncal
         self.tpp = tpp
         self.tpc = tpc
         self.tipo = tipo
@@ -114,9 +117,15 @@ class OD(object):
                 self.nTransferencias = 1
             else:
                 self.nTransferencias = 2
-        self.tEspera = calcularTiempoEspera(self, k, False)
+        if origen.MZ_corredor and brt_cerrado:
+            self.tEspera = calcularTiempoEspera(self, k_troncal, False)
+        else:
+            self.tEspera = calcularTiempoEspera(self, k, False)
         if not self.nTransferencias == 0:
-            self.tTransferencia = calcularTiempoEspera(self, k, True)
+            if brt_cerrado:
+                self.tTransferencia = calcularTiempoEspera(self, k_troncal, True)
+            else:
+                self.tTransferencia = calcularTiempoEspera(self, k, True)
         else:
             self.tTransferencia = 0
         self.tAcceso = calcularTiempoAcceso(self, Va)
@@ -312,12 +321,14 @@ class red(object):
     '''
 
     def __init__(self, lineas, troncal, tipo, macroZ, Vp, Vc, Va, k, gammaV, gammaA, gammaE, sp, sc, tpp, tpc, delta,
-                 theta, ad, bd, at, bt, tsp, tsc,tbp, alpha, alpha1, alpha2, beta, beta1, beta2, R, lambdap, lambdac,
-                 lambdaCBD, tpVariable, n):
+                 theta, ad, bd, at, bt, tsp, tsc, tbp, alpha, alpha1, alpha2, beta, beta1, beta2, R, lambdap, lambdac,
+                 lambdaCBD, tpVariable, n, k_troncal):
         self.lineas = lineas
         self.troncal = troncal
+        self.brt_cerrado = False
         if tipo == 'Cerrada':
             self.lineas.append(self.troncal)
+            self.brt_cerrado = True
         self.tipo = tipo
         self.macroZonas = macroZ
         self.Vp = Vp
@@ -343,7 +354,7 @@ class red(object):
         self.alpha = alpha
         self.alpha1 = alpha1
         self.alpha2 = alpha2
-        self.beta =beta
+        self.beta = beta
         self.beta1 = beta1
         self.beta2 = beta2
         self.R = R
@@ -362,17 +373,17 @@ class red(object):
             for mizO in self.macroZonas[mazO].microZonas:
                 for mazD in self.macroZonas:
                     for mizD in self.macroZonas[mazD].microZonas:
-                        od = OD(mizO, mizD, self.demandaTotal, Vp, Vc, Va, k, tpp, tpc, tipo, delta)
+                        od = OD(mizO, mizD, self.demandaTotal, Vp, Vc, Va, k, tpp, tpc, tipo, delta, k_troncal, self.brt_cerrado)
                         self.ODs.append(od)
         self.DatosTransferencias = self.getTransferencias()
         self.demandaIndirecta = self.DatosTransferencias[0]
         self.demandaDirecta = self.demandaTotal-self.demandaIndirecta
         self.Transferencias = self.DatosTransferencias[1]
         self.TiemposPersonas = self.getTiempoPersonas()
-        self.TotaltViaje =self.TiemposPersonas[0]
-        self.TotaltEspera =self.TiemposPersonas[1]
-        self.TotaltAcceso =self.TiemposPersonas[2]
-        self.TotaltTransferencia =self.TiemposPersonas[3]
+        self.TotaltViaje = self.TiemposPersonas[0]
+        self.TotaltEspera = self.TiemposPersonas[1]
+        self.TotaltAcceso = self.TiemposPersonas[2]
+        self.TotaltTransferencia = self.TiemposPersonas[3]
         self.TotaltTransferenciaSinDelta = self.TiemposPersonas[4]
         self.TotaltMovimiento = self.TiemposPersonas[5]
         self.TotaltParada = self.TiemposPersonas[6]
@@ -517,12 +528,20 @@ class red(object):
             od.tParadaCorredor = od.tParadas[1]
             od.tParadaFijo = od.tParadas[2] + od.tParadas[3]
             od.tParadaVariable = od.tParadaCorredor + od.tParadaPeriferia - od.tParadaFijo
-            od.tViaje = od.tMovimientoPeriferia + od.tParadaPeriferia + od.tMovimientoCorredor+ od.tParadaCorredor
-            od.tEspera = calcularTiempoEspera(od, self.k, False)
+            od.tViaje = od.tMovimientoPeriferia + od.tParadaPeriferia + od.tMovimientoCorredor + od.tParadaCorredor
+
+            if od.origen.MZ_corredor and self.brt_cerrado:
+                od.tEspera = calcularTiempoEspera(od, od.k_troncal, False)
+            else:
+                od.tEspera = calcularTiempoEspera(od, od.k, False)
             if not od.nTransferencias == 0:
-                od.tTransferencia = calcularTiempoEspera(od, self.k, True)
+                if self.brt_cerrado:
+                    od.tTransferencia = calcularTiempoEspera(od, od.k_troncal, True)
+                else:
+                    od.tTransferencia = calcularTiempoEspera(od, od.k, True)
             else:
                 od.tTransferencia = 0
+
             od.TotaltParada = (od.tParadaCorredor + od.tParadaPeriferia)*od.demandaTotal
             od.TotaltParadaFijo = od.tParadaFijo*od.demandaTotal
             od.TotaltParadaVariable = od.tParadaVariable*od.demandaTotal
@@ -743,11 +762,18 @@ class red(object):
 
 
         #En adicion a la carga, aprovechamos el metodo para actualizar primero los spacing, y luego los tiempos de parada y tiempos de ciclo.
-        sp = calcularSpacing(self.tpp, self.gammaV, self.gammaA, self.lambdap, (self.alpha1+self.alpha2)/2.0, self.at, self.bt, self.Va, self.lineas, False,)
+        #Para la periferia, es importante sacar del cálculo al troncal ya que su alta frecuencia genera mucha distorción en los promedios.
+        lineas_periferia = []
+        for l in self.lineas:
+            lineas_periferia.append(l)
+        lineas_periferia.remove(self.troncal)
+        #Calculo del espaciamiento en periferia, aplica lo mismo para BRT Abierto y Cerrado
+        sp = calcularSpacing(self.tpp, self.gammaV, self.gammaA, self.lambdap*self.beta/(len(self.macroZonas['PN'].microZonas)), (self.alpha1+self.alpha2)/2.0, self.at, self.bt, self.Va, lineas_periferia, False,)
+        #En el corredor es necesario hacer la diferencia: para el abierto se ocupan todas las lineas, para el cerrado solo el troncal
         if self.tipo == 'Abierta':
-            sc = calcularSpacing(self.tpc, self.gammaV, self.gammaA, self.lambdac, (self.beta1+self.beta2)/2.0, self.at, self.bt, self.Va, self.lineas, True)
+            sc = calcularSpacing(self.tpc, self.gammaV, self.gammaA, self.lambdac*self.R, (self.beta1+self.beta2)/2.0, self.at, self.bt, self.Va, self.lineas, True)
         else:
-            sc = calcularSpacing(self.tpc, self.gammaV, self.gammaA, self.lambdac, (self.beta1+self.beta2)/2.0, self.at, self.bt, self.Va, [self.troncal], True)
+            sc = calcularSpacing(self.tpc, self.gammaV, self.gammaA, self.lambdac*self.R, (self.beta1+self.beta2)/2.0, self.at, self.bt, self.Va, [self.troncal], True)
         #print 'sp= '+str(sp)+" "+'sc= '+str(sc)
         self.sc = sc
         self.sp = sp
@@ -806,7 +832,8 @@ class ciudad(object):
     """
 
     def __init__(self, lambdap, lambdac, lambdaCBD, R, R1, beta, beta1, alpha, alpha1, Va, Vp, Vc, tpp, tpc, delta,
-                 gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable):
+                 gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable,
+                 k_troncal):
         assert R < R1, "R1 debe ser al menos del tamano de R"
         #assert beta - beta1 - R1 >= R1
         assert rhop + rhoc +rhoCBD == 1, "La suma de las atracctividades por macrozona debe ser 1"
@@ -831,6 +858,7 @@ class ciudad(object):
         self.gammaA = gammaA
         self.gammaE = gammaE
         self.k = k
+        self.k_troncal = k_troncal
         self.sMin = sMin#A nivel de ciudad se establecera una restriccion respecto al numero minimo de lineas que deben haber. Esto dependera de las dimensiones minimas de la ciudad.
         self.rhop =rhop
         self.rhoc = rhoc
@@ -1012,7 +1040,7 @@ class ciudad(object):
 
         x = red(lineas, ltroncal, 'Cerrada', macroZ, self.Vp, self.Vc, self.Va, self.k, self.gammaV, self.gammaA, self.gammaE,
                 sp, sc, self.tpp, self.tpc, self.delta, self.theta, self.ad, self.bd, self.at, self.bt, self.tsp, self.tsc, self.tbp, self.alpha,
-                self.alpha1, self.alpha2, self.beta, self.beta1, self.beta2, self.R, self.lambdap, self.lambdac, self.lambdaCBD, self.tpVariable, n)
+                self.alpha1, self.alpha2, self.beta, self.beta1, self.beta2, self.R, self.lambdap, self.lambdac, self.lambdaCBD, self.tpVariable, n, self.k_troncal)
         #Calibramos la distribucion
         distribucionDemanda(x)
         #Asignamos la carga a los buses
@@ -1045,7 +1073,7 @@ class ciudad(object):
         #recuperamos los rangos de las macrozonas del corredor:
         n0 = macroZ['CP'].nMicroZonas
         nCBD = macroZ['CBD'].nMicroZonas
-        n1CBD = nCBD/2 + 1#Este numero se ocupa como auxiliar para ver los rangos de emparejamiento
+        n1CBD = int(nCBD/2) + 1#Este numero se ocupa como auxiliar para ver los rangos de emparejamiento
         n2CBD = nCBD - n1CBD#Este numero se ocupa como auxiliar para ver los rangos de emparejamiento
         nf = macroZ['CO'].nMicroZonas
 
@@ -1144,7 +1172,7 @@ class ciudad(object):
         red.sc = sc
         red.sp = sp
         for maz in macroZ:
-            if maz == 'PN' or maz=='PS':
+            if maz == 'PN' or maz =='PS':
                 for miz in macroZ[maz].microZonas:
                     miz.setSpacing(sp)
             else:
