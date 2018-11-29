@@ -171,10 +171,10 @@ for g in range(0, 1):
 
     #Crear Graficos
     for nred in range(3, 3+len(city.red['Abierta'])):
-        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V3.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
+        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V4.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
     for nred in range(3, 3+len(city.red['Cerrada'])):
-        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V3.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
-    crearExcelnLineas('nLineasResultados_Caso_BaseNewQ&K_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
+        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V4.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
+    crearExcelnLineas('nLineasResultados_V4.0_Caso_BaseNewQ&K_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
     ciudades.append(city)
 crearExcelCiudades(ciudades)
 

@@ -522,6 +522,7 @@ class red(object):
         self.TotaltEspera = 0
         self.TotaltTransferencia = 0
         self.TotaltTransferenciaSinDelta = 0
+        self.TotaltAcceso = 0
         for od in self.ODs:
             od.tParadas = calcularTiempoParadas(od, self.tpVariable, self.tpp, self.tpc, self.sp, self.sc)
             od.tParadaPeriferia = od.tParadas[0]
@@ -529,6 +530,7 @@ class red(object):
             od.tParadaFijo = od.tParadas[2] + od.tParadas[3]
             od.tParadaVariable = od.tParadaCorredor + od.tParadaPeriferia - od.tParadaFijo
             od.tViaje = od.tMovimientoPeriferia + od.tParadaPeriferia + od.tMovimientoCorredor + od.tParadaCorredor
+            od.tAcceso = calcularTiempoAcceso(od, self.Va)
 
             if od.origen.MZ_corredor and self.brt_cerrado:
                 od.tEspera = calcularTiempoEspera(od, od.k_troncal, False)
@@ -549,6 +551,7 @@ class red(object):
             od.TotaltEspera = od.tEspera*od.demandaTotal
             od.TotaltTransferencia = (od.tTransferencia+od.deltaTT*od.nTransferencias)*od.demandaIndirecta
             od.TotaltTransferenciaSinDelta = (od.tTransferencia)*od.demandaIndirecta
+            od.TotaltAcceso = od.tAcceso*od.demandaTotal
             self.TotaltEspera += od.TotaltEspera
             self.TotaltTransferencia += od.TotaltTransferencia
             self.TotaltTransferenciaSinDelta += od.TotaltTransferenciaSinDelta
@@ -556,11 +559,13 @@ class red(object):
             self.TotaltParada += od.TotaltParada
             self.TotaltParadaFijo += od.TotaltParadaFijo
             self.TotaltParadaVariable += od.TotaltParadaVariable
+            self.TotaltAcceso += od.TotaltAcceso
 
         self.CostoTotaltViaje = self.TotaltViaje*self.gammaV
         self.CostoTotaltParada = self.TotaltParada*self.gammaV
         self.CostoTotaltEspera = self.TotaltEspera*self.gammaE
         self.CostoTotaltTransferencia = self.TotaltTransferencia*self.gammaE
+        self.CostoTotaltAcceso = self.TotaltAcceso*self.gammaA
         #Finalmente se actualiza el costo Total
         self.CostoTotal = self.CostoOperacion + self.CostoTotaltViaje + self.CostoTotaltEspera + self.CostoTotaltAcceso + self.CostoTotaltTransferencia
         #Tambien hay que actualizar los promedios.
@@ -569,6 +574,7 @@ class red(object):
         self.tEsperaPromedio = self.TotaltEspera/self.demandaTotal
         self.tTransferenciaSinDeltaPromedio = self.TotaltTransferenciaSinDelta/self.demandaTotal
         self.tTransferenciaPromedio = self.TotaltTransferencia/self.demandaTotal
+        self.tAccesoPromedio = self.TotaltAcceso/self.demandaTotal
         self.CostoTotaltViajePromedio = self.CostoTotaltViaje/self.demandaTotal
         self.CostoTotaltParadaPromedio = self.CostoTotaltParada/self.demandaTotal
         self.CostoTotaltEsperaPromedio = self.CostoTotaltEspera/self.demandaTotal
@@ -766,7 +772,8 @@ class red(object):
         lineas_periferia = []
         for l in self.lineas:
             lineas_periferia.append(l)
-        lineas_periferia.remove(self.troncal)
+        if self.tipo == 'Cerrada':
+            lineas_periferia.remove(self.troncal)
         #Calculo del espaciamiento en periferia, aplica lo mismo para BRT Abierto y Cerrado
         sp = calcularSpacing(self.tpp, self.gammaV, self.gammaA, self.lambdap*self.beta/(len(self.macroZonas['PN'].microZonas)), (self.alpha1+self.alpha2)/2.0, self.at, self.bt, self.Va, lineas_periferia, False,)
         #En el corredor es necesario hacer la diferencia: para el abierto se ocupan todas las lineas, para el cerrado solo el troncal
@@ -1184,7 +1191,7 @@ class ciudad(object):
 
         x = red(lineas, None, 'Abierta', macroZ,  self.Vp, self.Vc, self.Va, self.k, self.gammaV, self.gammaA, self.gammaE,
                 sp, sc, self.tpp, self.tpc, self.delta, self.theta, self.ad, self.bd, self.at, self.bt, self.tsp, self.tsc, self.tbp, self.alpha,
-                self.alpha1, self.alpha2, self.beta, self.beta1, self.beta2, self.R, self.lambdap, self.lambdac, self.lambdaCBD, self.tpVariable, n)
+                self.alpha1, self.alpha2, self.beta, self.beta1, self.beta2, self.R, self.lambdap, self.lambdac, self.lambdaCBD, self.tpVariable, n, self.k_troncal)
         #Calibramos la distribucion
         distribucionDemanda(x)
         #Asignamos la carga a los buses
