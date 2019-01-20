@@ -343,6 +343,7 @@ def crearExcelRed(red, nombre):
 
     nombresRedes = ('Abierta', 'Cerrada')
     tipoLineas = ('solid', 'dash_dot')
+    sentido = ('Ida', 'Vuelta')
     nRedes = 1
     largo = red.iteracion
     for k in range(nRedes):
@@ -435,82 +436,87 @@ def crearExcelRed(red, nombre):
         largoCiclo = 0
         #Primero los encabezados
         for l in range(nlineas):
-            wsInfoC.write(0 + largoCiclo, 0, "Linea"+str(l))
-            wsInfoC.write(0 + largoCiclo, 1, "f"+str(l))
-            wsInfoC.write(1 + largoCiclo, 1, "vComercial"+str(l))
-            wsInfoC.write(2 + largoCiclo, 1, "K"+str(l))
-            wsInfoC.write(3 + largoCiclo, 1, "B"+str(l))
-            wsInfoC.write(4 + largoCiclo, 1, "ASK"+str(l))
-            wsInfoC.write(5 + largoCiclo, 1, "RPK"+str(l))
-            wsInfoC.write(6 + largoCiclo, 1, "FO"+str(l))
-            wsInfoC.write(7 + largoCiclo, 1, "MZ-ID")
-            wsInfoC.write(8 + largoCiclo, 1, "Carga")
-            wsInfoC.write(9 + largoCiclo, 1, "Subidas")
-            wsInfoC.write(10 + largoCiclo, 1, "Bajadas")
-            wsInfoC.write(11 + largoCiclo, 1, "Ocupacion")
 
-            #Luego los datos
-            wsInfoC.write(0 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].f)
-            wsInfoC.write(1 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].velocidadComercial)
-            wsInfoC.write(2 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].cargaMaxima)
-            wsInfoC.write(3 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].flota)
-            wsInfoC.write(4 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ASK)
-            wsInfoC.write(5 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].RPK)
-            wsInfoC.write(6 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].FOPromedio)
-            wsCLineas.write(1 + l, 0, 'Linea '+str(red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ID))
-            wsCLineas.write(1 + l, 1, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].f)
-            wsCLineas.write(1 + l, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].velocidadComercial)
-            wsCLineas.write(1 + l, 3, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].cargaMaxima)
-            wsCLineas.write(1 + l, 4, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].flota)
-            wsCLineas.write(1 + l, 5, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ASK)
-            wsCLineas.write(1 + l, 6, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].RPK)
-            wsCLineas.write(1 + l, 7, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].FOPromedio)
+            for s in range(len(sentido)):
+                wsInfoC.write(0 + largoCiclo, 0, "Linea"+str(l)+"-"+sentido[s])
+                wsInfoC.write(0 + largoCiclo, 1, "f"+str(l))
+                wsInfoC.write(1 + largoCiclo, 1, "vComercial"+str(l))
+                wsInfoC.write(2 + largoCiclo, 1, "K"+str(l))
+                wsInfoC.write(3 + largoCiclo, 1, "B"+str(l))
+                wsInfoC.write(4 + largoCiclo, 1, "ASK"+str(l))
+                wsInfoC.write(5 + largoCiclo, 1, "RPK"+str(l))
+                wsInfoC.write(6 + largoCiclo, 1, "FO"+str(l))
+                wsInfoC.write(7 + largoCiclo, 1, "MZ-ID")
+                wsInfoC.write(8 + largoCiclo, 1, "Carga")
+                wsInfoC.write(9 + largoCiclo, 1, "Subidas")
+                wsInfoC.write(10 + largoCiclo, 1, "Bajadas")
+                wsInfoC.write(11 + largoCiclo, 1, "Ocupacion")
 
-            #Seteamos el ancho de las microzonas
-            ancho = len(red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].microZonas)
+                #Luego los datos
+                wsInfoC.write(0 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].f)
+                wsInfoC.write(1 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].velocidadComercial)
+                wsInfoC.write(2 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].cargaMaxima)
+                wsInfoC.write(3 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].flota)
+                wsInfoC.write(4 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ASK)
+                wsInfoC.write(5 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].RPK)
+                wsInfoC.write(6 + largoCiclo, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].FOPromedio)
+                wsCLineas.write(1 + l, 0, 'Linea '+str(red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ID))
+                wsCLineas.write(1 + l, 1, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].f)
+                wsCLineas.write(1 + l, 2, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].velocidadComercial)
+                wsCLineas.write(1 + l, 3, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].cargaMaxima)
+                wsCLineas.write(1 + l, 4, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].flota)
+                wsCLineas.write(1 + l, 5, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].ASK)
+                wsCLineas.write(1 + l, 6, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].RPK)
+                wsCLineas.write(1 + l, 7, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].FOPromedio)
 
-            #Se inicializa la primera columna con la info de salida del terminal
-            wsInfoC.write(7 + largoCiclo, 2, 'Inicio')
-            wsInfoC.write(8 + largoCiclo, 2, 0)
-            wsInfoC.write(9 + largoCiclo, 2, 0)
-            wsInfoC.write(10 + largoCiclo, 2, 0)
-            wsInfoC.write(11 + largoCiclo, 2, 0)
+                #Seteamos el ancho de las microzonas
+                ancho = len(red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].microZonas)
 
-            #Luego las microzonas
-            for j in range(ancho):
-                id = red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].microZonas[j].ID
-                wsInfoC.write(7 + largoCiclo, 3 + j, id)
-                wsInfoC.write(8 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga['Ida'][0][id])
-                wsInfoC.write(9 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga['Ida'][1][id])
-                wsInfoC.write(10 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga['Ida'][2][id])
-                wsInfoC.write(11 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga['Ida'][3][id])
+                #Se inicializa la primera columna con la info de salida del terminal
+                wsInfoC.write(7 + largoCiclo, 2, 'Inicio')
+                wsInfoC.write(8 + largoCiclo, 2, 0)
+                wsInfoC.write(9 + largoCiclo, 2, 0)
+                wsInfoC.write(10 + largoCiclo, 2, 0)
+                wsInfoC.write(11 + largoCiclo, 2, 0)
 
-            #Creamos un chart para ir viendo la carga de la linea
-            chartCarga = wb.add_chart({'type': 'line'})
-            chartCarga.add_series({
-            'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
-            'values':     ['InfoC', 8 + largoCiclo, 2, 8 + largoCiclo, 3 + ancho],
-            'line':       {'color': 'red'},
-            'name': 'Carga'
-            })
+                #Luego las microzonas
+                for j in range(ancho):
+                    if sentido[s] == "Ida":
+                        id = red.resultadosPorFrecuencia[red.iteracion - 1].lineas[l].microZonas[j].ID
+                    else:
+                        id = red.resultadosPorFrecuencia[red.iteracion - 1].lineas[l].microZonas[-1-j].ID
+                    wsInfoC.write(7 + largoCiclo, 3 + j, id)
+                    wsInfoC.write(8 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga[sentido[s]][0][id])
+                    wsInfoC.write(9 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga[sentido[s]][1][id])
+                    wsInfoC.write(10 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga[sentido[s]][2][id])
+                    wsInfoC.write(11 + largoCiclo, 3 + j, red.resultadosPorFrecuencia[red.iteracion-1].lineas[l].infoCarga[sentido[s]][3][id])
 
-            chartCarga.add_series({
-            'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
-            'values':     ['InfoC', 9 + largoCiclo, 2, 9 + largoCiclo, 3 + ancho],
-            'line':       {'color': 'green'},
-            'name': 'Subidas'
-            })
+                #Creamos un chart para ir viendo la carga de la linea
+                chartCarga = wb.add_chart({'type': 'line'})
+                chartCarga.add_series({
+                'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
+                'values':     ['InfoC', 8 + largoCiclo, 2, 8 + largoCiclo, 3 + ancho],
+                'line':       {'color': 'red'},
+                'name': 'Carga'
+                })
 
-            chartCarga.add_series({
-            'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
-            'values':     ['InfoC', 10 + largoCiclo, 2, 10 + largoCiclo, 3 + ancho],
-            'line':       {'color': 'blue'},
-            'name': 'Bajadas'
-            })
+                chartCarga.add_series({
+                'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
+                'values':     ['InfoC', 9 + largoCiclo, 2, 9 + largoCiclo, 3 + ancho],
+                'line':       {'color': 'green'},
+                'name': 'Subidas'
+                })
 
-            wsInfoC.insert_chart(largoCiclo, 4 + ancho, chartCarga)
+                chartCarga.add_series({
+                'categories': ['InfoC', 7 + largoCiclo, 2, 7 + largoCiclo, 3 + ancho],
+                'values':     ['InfoC', 10 + largoCiclo, 2, 10 + largoCiclo, 3 + ancho],
+                'line':       {'color': 'blue'},
+                'name': 'Bajadas'
+                })
 
-            largoCiclo += 14
+                wsInfoC.insert_chart(largoCiclo, 4 + ancho, chartCarga)
+
+                largoCiclo += 14
 
 
 
