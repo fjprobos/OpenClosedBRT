@@ -751,9 +751,13 @@ class red(object):
             #Vuelta. Para la vuelta es lo mismo pero justo al reves
             l.infoCarga['Vuelta'][0][l.microZonas[-1].ID] = l.infoCarga['Vuelta'][1][l.microZonas[-1].ID]-l.infoCarga['Vuelta'][2][l.microZonas[-1].ID]#En la primera microzona se considera que el bus viene vacio.
             l.RPK += l.microZonas[-1].recorrido*(l.infoCarga['Vuelta'][0][l.microZonas[-1].ID]/2.0)
+            if l.cargaMaxima < l.infoCarga['Vuelta'][0][l.microZonas[-1].ID]:
+                l.cargaMaxima = l.infoCarga['Vuelta'][0][l.microZonas[-1].ID]
             for i in range(len(l.microZonas)-2, -1, -1):#TODO Verificar que la lista de microzonas de una lineas este en orden. ->Revisado, para el caso de ciudad parecida a Valdivia, esta todo ok.
                 l.infoCarga['Vuelta'][0][l.microZonas[i].ID] = l.infoCarga['Vuelta'][1][l.microZonas[i].ID]-l.infoCarga['Vuelta'][2][l.microZonas[i].ID] + l.infoCarga['Vuelta'][0][l.microZonas[i+1].ID]
                 l.RPK += l.microZonas[i].recorrido*(l.infoCarga['Vuelta'][0][l.microZonas[i].ID]+l.infoCarga['Vuelta'][0][l.microZonas[i+1].ID])/2.0
+                if l.cargaMaxima < l.infoCarga['Vuelta'][0][l.microZonas[i].ID]:
+                    l.cargaMaxima = l.infoCarga['Vuelta'][0][l.microZonas[i].ID]
 
             #Finalmente obtenemos los Available Seat Kilometer(ASK) y Factor de Ocupacion(FO)
             l.ASK = 2*(l.distanciaPeriferia + l.distanciaCorredor)*l.cargaMaxima*l.f
