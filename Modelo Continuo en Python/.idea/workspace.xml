@@ -11,9 +11,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Modelo Continuo en Python" />
   </component>
@@ -22,11 +24,9 @@
       <file leaf-file-name="mContinuoMain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
-              <folding>
-                <element signature="e#71#99#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2475">
+              <caret line="180" column="37" selection-start-line="180" selection-start-column="37" selection-end-line="180" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -34,8 +34,9 @@
       <file leaf-file-name="mContinuoGraficos.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7293">
+            <state relative-caret-position="6435">
               <caret line="429" column="49" selection-start-line="429" selection-start-column="49" selection-end-line="429" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,7 +44,7 @@
       <file leaf-file-name="mContinuoFunciones.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="6270">
               <caret line="419" column="30" selection-start-line="419" selection-start-column="12" selection-end-line="419" selection-end-column="30" />
               <folding>
                 <element signature="e#46#81#0" expanded="true" />
@@ -55,7 +56,7 @@
       <file leaf-file-name="mContinuoResultados.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="1470">
               <caret line="98" column="49" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="49" />
               <folding>
                 <element signature="e#23#51#0" expanded="true" />
@@ -67,7 +68,7 @@
       <file leaf-file-name="mContinuoClases.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
+            <state relative-caret-position="8640">
               <caret line="576" column="66" selection-start-line="576" selection-start-column="66" selection-end-line="576" selection-end-column="66" />
               <folding>
                 <element signature="e#23#54#0" expanded="true" />
@@ -128,11 +129,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="110" />
-    <option name="y" value="-25" />
-    <option name="width" value="1750" />
-    <option name="height" value="970" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="773" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -153,53 +153,34 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Modelo Continuo en Python" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Modelo Continuo en Python" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy-0.13.3" type="462c0819:PsiDirectoryNode" />
-              <item name="scipy" type="462c0819:PsiDirectoryNode" />
-              <item name="optimize" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="FullScreen" value="false" />
@@ -211,6 +192,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -225,8 +207,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.mContinuoMain">
-    <configuration name="Sudoku" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Modelo Continuo en Python" />
+    <configuration default="false" name="Sudoku" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -237,16 +218,15 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Sudoku.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
     </configuration>
-    <configuration name="final" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Modelo Continuo en Python" />
+    <configuration default="false" name="final" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -257,18 +237,17 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/final.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
     </configuration>
-    <configuration name="m1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Modelo Continuo en Python" />
+    <configuration default="false" name="m1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -279,18 +258,17 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/m1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
     </configuration>
-    <configuration name="mContinuoMain" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Modelo Continuo en Python" />
+    <configuration default="false" name="mContinuoMain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -301,18 +279,17 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mContinuoMain.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Modelo Continuo en Python" />
+    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -323,13 +300,42 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Ejemplos Scipy/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
+      <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -350,22 +356,111 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list>
-      <item itemvalue="Python.m1" />
-      <item itemvalue="Python.Sudoku" />
-      <item itemvalue="Python.final" />
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.mContinuoMain" />
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Modelo Continuo en Python" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.Sudoku" />
+      <item index="1" class="java.lang.String" itemvalue="Python.final" />
+      <item index="2" class="java.lang.String" itemvalue="Python.m1" />
+      <item index="3" class="java.lang.String" itemvalue="Python.mContinuoMain" />
+      <item index="4" class="java.lang.String" itemvalue="Python.main" />
     </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="Python.mContinuoMain" />
-        <item itemvalue="Python.m1" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.final" />
-        <item itemvalue="Python.Sudoku" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.mContinuoMain" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.m1" />
+        <item index="3" class="java.lang.String" itemvalue="Python.final" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Sudoku" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -401,47 +496,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12888302" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.43923867" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.329429" />
-      <window_info active="true" anchor="bottom" x="255" y="181" width="934" height="625" id="Run" order="5" visible="true" weight="0.38176638" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.26647145" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.39173788" />
-      <window_info id="Favorites" order="2" side_tool="true" weight="0.32962668" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35976505" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39941263" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14296874" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.4172767" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" x="255" y="181" width="934" height="625" id="Run" order="5" weight="0.40625" />
-      <window_info anchor="bottom" id="Changes" order="7" />
-      <window_info anchor="bottom" id="Debug" order="2" visible="true" weight="0.42045453" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.26647145" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.329429" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329429" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" weight="0.32962668" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -463,13 +538,24 @@
           <option name="timeStamp" value="158" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="199" />
+      <option name="time" value="200" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8640">
+          <caret line="576" column="66" selection-start-line="576" selection-start-column="66" selection-end-line="576" selection-end-column="66" />
+          <folding>
+            <element signature="e#23#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="307" column="20" selection-start-line="307" selection-start-column="20" selection-end-line="307" selection-end-column="20" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
@@ -479,7 +565,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#23#51#0" expanded="true" />
@@ -489,24 +575,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#71#99#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="257" column="27" selection-start-line="257" selection-start-column="27" selection-end-line="257" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="682" column="9" selection-start-line="682" selection-start-column="9" selection-end-line="682" selection-end-column="9" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -516,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="711" selection-start-line="711" selection-end-line="711" />
+        <state relative-caret-position="0">
+          <caret line="711" column="0" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
@@ -526,7 +610,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding>
             <element signature="e#23#51#0" expanded="true" />
@@ -536,7 +620,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="363" column="51" selection-start-line="363" selection-start-column="51" selection-end-line="363" selection-end-column="51" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -546,7 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="363" column="20" selection-start-line="363" selection-start-column="20" selection-end-line="363" selection-end-column="20" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
@@ -556,7 +640,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="167" column="20" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="20" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -566,15 +650,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="154" column="83" selection-start-line="154" selection-start-column="83" selection-end-line="154" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="0">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
@@ -583,7 +667,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -593,14 +677,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="501" column="56" selection-start-line="501" selection-start-column="56" selection-end-line="501" selection-end-column="56" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -610,8 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="0">
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
@@ -620,7 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="501" column="56" selection-start-line="501" selection-start-column="56" selection-end-line="501" selection-end-column="56" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -630,8 +714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="0">
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
@@ -640,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="329" selection-start-line="329" selection-end-line="329" />
+        <state relative-caret-position="0">
+          <caret line="329" column="0" selection-start-line="329" selection-start-column="0" selection-end-line="329" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -650,8 +734,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="0">
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
           </folding>
@@ -660,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="0">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -670,8 +754,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        <state relative-caret-position="0">
+          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -680,7 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -689,7 +774,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="152" column="35" selection-start-line="152" selection-start-column="35" selection-end-line="152" selection-end-column="35" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -699,7 +784,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="90" column="39" selection-start-line="90" selection-start-column="39" selection-end-line="90" selection-end-column="39" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -709,7 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -718,14 +804,14 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1732" selection-start-line="1732" selection-end-line="1733" />
+        <state relative-caret-position="0">
+          <caret line="1732" column="0" selection-start-line="1732" selection-start-column="0" selection-end-line="1733" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -735,39 +821,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gurobi.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gurobi.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gurobi.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gurobi.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd_breakpoints.py" />
     <entry file="file://$PROJECT_DIR$/Ejemplos Scipy/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="17" selection-start-line="17" selection-end-line="20" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scipy/nose-1.3.4/build/lib/nose/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="0">
           <caret line="286" column="10" selection-start-line="286" selection-start-column="10" selection-end-line="286" selection-end-column="10" />
         </state>
       </provider>
@@ -776,60 +859,40 @@
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/site-packages/numpy/core/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/site-packages/scipy/optimize/linesearch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/site-packages/numpy/core/__init__.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/site-packages/scipy/optimize/linesearch.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_breakpoints.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5253">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/codecs.py" />
     <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/_minimize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1555" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/zipfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="1208" selection-start-line="1208" selection-end-line="1208" />
+        <state relative-caret-position="-1555">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/conda/conda/envs/BRT Continous model/Lib/zipfile.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
-          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+          <caret line="1663" column="0" selection-start-line="1663" selection-start-column="0" selection-end-line="1663" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/cobyla.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836" />
+        <state relative-caret-position="-1836">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scipy/scipy-0.13.3/scipy/optimize/optimize.py">
@@ -841,14 +904,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoGraficos.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7293">
+        <state relative-caret-position="6435">
           <caret line="429" column="49" selection-start-line="429" selection-start-column="49" selection-end-line="429" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoResultados.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="1470">
           <caret line="98" column="49" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="49" />
           <folding>
             <element signature="e#23#51#0" expanded="true" />
@@ -858,7 +922,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoFunciones.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
+        <state relative-caret-position="6270">
           <caret line="419" column="30" selection-start-line="419" selection-start-column="12" selection-end-line="419" selection-end-column="30" />
           <folding>
             <element signature="e#46#81#0" expanded="true" />
@@ -868,7 +932,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoClases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
+        <state relative-caret-position="8640">
           <caret line="576" column="66" selection-start-line="576" selection-start-column="66" selection-end-line="576" selection-end-column="66" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
@@ -878,11 +942,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mContinuoMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="80" column="24" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
-          <folding>
-            <element signature="e#71#99#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2475">
+          <caret line="180" column="37" selection-start-line="180" selection-start-column="37" selection-end-line="180" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

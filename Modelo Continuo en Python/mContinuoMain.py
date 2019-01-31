@@ -23,7 +23,6 @@ delta = 0.09766 #Penalidad por transferencia. Cercano a 5.86 minutos segun Ravea
 Va = 4.5###Buscar una fuente relevante
 Vp = 25.0######Corresponde a los running speed, los cuales solo consideran la velocidad en movimiento. 25 es el promedio entre urbano poco denso, urbano medio y urbano densp en el modelo discreto.
 Vc = 40.0######Velcoidad en Corredor. Lo mismo que fijamos para el modelo discreto.
-#TODO Acá estan los tres parámetros a modificar sobre los tiempos de parada
 tmuertop = 0.00166###Sale de Tirachini al parecer.Incluir en el escrito!!!
 tpp = tmuertop + (Vp)*(1/15552.0+1/15552.0)*(1-1/2)#tiempo de detencion como tmuerto de parada mas demora por aceleracion/desacel menos el tiempo que hubiese ganado si no hubiese parado, es decir, la distancia de frenado y aceleracion a velocidad libre
 tpc = tmuertop + (Vc)*(1/15552.0+1/15552.0)*(1-1/2)#Se utilizan unidades de Mkm y hr. De Tiachini 2014.a=1.2m/s^2 es el que utiliza Tirachini.
@@ -52,7 +51,7 @@ nivelKEspera = (1, 1.2, 1.4, 1.6, 1.8, 2.0) #Ponderadores para sensibilidad eres
 
 ciudades = []
 
-for g in range(0, 1):
+for g in range(0, 6):
     gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
     gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
     gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
@@ -69,7 +68,7 @@ for g in range(0, 1):
     #lambdap = lambdap*nivelDemandaTotal[g]
     #lambdac = lambdac*nivelDemandaTotal[g]
     #lambdaCBD = lambdaCBD*nivelDemandaTotal[g]
-    #k = k*nivelKEspera[g]
+    k = k*nivelKEspera[g]
 
     city = ciudad(lambdap, lambdac, lambdaCBD, R, R1, beta, beta1, alpha, alpha1, Va, Vp, Vc, tpp, tpc, delta,
                   gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable,
@@ -171,14 +170,12 @@ for g in range(0, 1):
 
     #Crear Graficos
     for nred in range(3, 3+len(city.red['Abierta'])):
-        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V4.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
+        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V4.0_SensibilidadK_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
     for nred in range(3, 3+len(city.red['Cerrada'])):
-        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V4.0_sensibilidad_BaseNewQ&K_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
-    crearExcelnLineas('nLineasResultados_V4.0_Caso_BaseNewQ&K_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
+        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V4.0_SensibilidadK_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
+    crearExcelnLineas('nLineasResultados_V4.0_SensibilidadK_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
     ciudades.append(city)
 crearExcelCiudades(ciudades)
 
 #TODO Resolver el Bug cuando el nCBD es relativamente muy grande. Al parecer el problema esta cuando se empiezan a parear las microzonas del CO.-> Para magnitudes modeladas no alcanza a ser problema. Se arreglara en casod e ser necesario.
-#TODO Verificar de alguna forma que las cargas de pasajeros en buses se estan haciendo correctamente.
 #TODO encontraar error por descuadre de rpk entre abierto y cerrado
-#TODO Revisar calculo de factor de ocupacion. Segun Gschwender esta muy alto.->Si no, argumentar porque es tan alto.
