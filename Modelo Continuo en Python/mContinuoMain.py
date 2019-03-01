@@ -51,10 +51,10 @@ nivelKEspera = (1, 1.2, 1.4, 1.6, 1.8, 2.0) #Ponderadores para sensibilidad eres
 
 ciudades = []
 
-for g in range(0, 6):
-    gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
-    gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
-    gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
+for g in range(0, 1):
+    #gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
+    #gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
+    #gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
     #gammaV = gammaV*nivelRiqueza[g]
     #gammaA = gammaA*nivelRiqueza[g]
     #gammaE = gammaE*nivelRiqueza[g]
@@ -68,16 +68,17 @@ for g in range(0, 6):
     #lambdap = lambdap*nivelDemandaTotal[g]
     #lambdac = lambdac*nivelDemandaTotal[g]
     #lambdaCBD = lambdaCBD*nivelDemandaTotal[g]
-    k = k*nivelKEspera[g]
+    #k = 0.8
+    #k = k*nivelKEspera[g]
 
     city = ciudad(lambdap, lambdac, lambdaCBD, R, R1, beta, beta1, alpha, alpha1, Va, Vp, Vc, tpp, tpc, delta,
                   gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable,
                   k_troncal)
 
     #resultadosNLineas(city)
-    n = 5
+    n = 2
     contador = 0
-    for i in range(n, 26):
+    for i in range(n, 5):
         print('Corriendo n='+str(i))
         city.agregarRedAbierta(i)
         city.agregarRedCerrada(i)
@@ -170,12 +171,12 @@ for g in range(0, 6):
 
     #Crear Graficos
     for nred in range(3, 3+len(city.red['Abierta'])):
-        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V4.0_SensibilidadK_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
+        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V5.0_BaseNewK_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
     for nred in range(3, 3+len(city.red['Cerrada'])):
-        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V4.0_SensibilidadK_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
-    crearExcelnLineas('nLineasResultados_V4.0_SensibilidadK_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
-    ciudades.append(city)
-crearExcelCiudades(ciudades)
+        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V5.0_BaseNewK_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
+    crearExcelnLineas('nLineasResultados_V4.0_Sensibilidad_Theta_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
+    #ciudades.append(city)
+#crearExcelCiudades(ciudades)
 
 #TODO Resolver el Bug cuando el nCBD es relativamente muy grande. Al parecer el problema esta cuando se empiezan a parear las microzonas del CO.-> Para magnitudes modeladas no alcanza a ser problema. Se arreglara en casod e ser necesario.
 #TODO encontraar error por descuadre de rpk entre abierto y cerrado

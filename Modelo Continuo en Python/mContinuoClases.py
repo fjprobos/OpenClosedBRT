@@ -486,6 +486,7 @@ class red(object):
             i = dicLineas[l.ID]
             l.f = f[i]
             l.flota = l.f*l.tCiclo
+            #TODO aqui hay que multiplicar la frec por dos!!! corregir esto y ver implicancias.
             self.frecPorDistancia += l.f*(l.distanciaCorredor+l.distanciaPeriferia)
 
         #Luego debemos reasignar la carga para poder calcular los indicadores de costos par ausuarios y operacion.
