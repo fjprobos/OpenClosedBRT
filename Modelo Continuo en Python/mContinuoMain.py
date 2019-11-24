@@ -1,9 +1,11 @@
 ##Primer modelo continuo optimizacion de red##
 
-#from gurobipy import*
+#  from gurobipy import*
+
 from mContinuoClases import*
 from mContinuoGraficos import*
 from mContinuoResultados import*
+import utils
 
 #Primero comenzamos a setear los datos del modelo
 
@@ -29,7 +31,7 @@ tpc = tmuertop + (Vc)*(1/15552.0+1/15552.0)*(1-1/2)#Se utilizan unidades de Mkm 
 gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
 gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
 gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
-k = 0.8 #Constante para tiempo de espera en paraderos. Se hace sensibilidad respecto a este parámetro.
+k = 0.8  # Constante tiempo de espera en paradero. Este es el k que se sensibiliza
 k_troncal = 0.6
 theta = 0.1 #Coeficiente que se utiliza en la funcion de costos para el modelo de distribucion. Varia
 rhop = 0.4 #Porcentaje de viajes atraidos por la periferia
@@ -48,10 +50,11 @@ nivelDemandaTotal = (0.5, 2, 4)#Multiplicador de la demanda total de la ciudad. 
 nivelTheta = (0, 0.5, 1.5, 2, 3)#Multiplicador de la sensibilidad de la demanda ante el largo de los viajes. En parte, indica largo de viajes.
 nivelDelta = (0, 0.5, 1.5, 2, 3)
 nivelKEspera = (1, 1.2, 1.4, 1.6, 1.8, 2.0) #Ponderadores para sensibilidad erespecto a la constante de espera
+nivelGeometria = (0.5, 1.0, 2.0, 4.0, 8.0)
 
 ciudades = []
 
-for g in range(0, 1):
+for g in range(0, 5):
     #gammaV = 1498.0#Valor obtenido de "Precios Sociales Vigentes 2015" del Ministerio de Desarrollo Social.
     #gammaA = gammaV*2.185 #Costo del tiempo de acceso. De promedio de comparacion TE vsTV para hombres y mujeres Raveau 2014.
     #gammaE = gammaV*1.570 #Costo del tiempo de espera. De comparacion TE vs TV de Raveau 2014.
@@ -71,6 +74,36 @@ for g in range(0, 1):
     #k = 0.8
     #k = k*nivelKEspera[g]
 
+    # For geometries sensitivity analysis. First restart params to default value
+    lambdap = 400.0
+    lambdac = 750.0
+    lambdaCBD = 1900.0
+    R = 0.6
+    R1 = 1.5
+    beta = 5.5
+    alpha = 3.9
+    alpha1 = 1.1
+    alpha2 = alpha - alpha1 - R
+    beta1 = 4.0
+    beta2 = beta - beta1 - R1
+    delta = 0.09766
+
+    # Then update params with the multiplier
+    params_geometrias = utils.geometry_sensitivity_parameters(lambdap, lambdac, lambdaCBD, R, R1, beta, alpha,
+                                                              alpha1, alpha2, beta1, beta2, delta, nivelGeometria[g])
+
+    lambdap = params_geometrias[0]
+    lambdac = params_geometrias[1]
+    lambdaCBD = params_geometrias[2]
+    R = params_geometrias[3]
+    R1 = params_geometrias[4]
+    beta = params_geometrias[5]
+    alpha = params_geometrias[6]
+    alpha1 = params_geometrias[7]
+    alpha2 = params_geometrias[8]
+    beta1 = params_geometrias[9]
+    beta2 = params_geometrias[10]
+
     city = ciudad(lambdap, lambdac, lambdaCBD, R, R1, beta, beta1, alpha, alpha1, Va, Vp, Vc, tpp, tpc, delta,
                   gammaV, gammaA, gammaE, k, sMin, rhop, rhoc, rhoCBD, theta, ad, bd, at, bt, tsp, tsc, tbp, tpVariable,
                   k_troncal)
@@ -78,7 +111,7 @@ for g in range(0, 1):
     #resultadosNLineas(city)
     n = 2
     contador = 0
-    for i in range(n, 5):
+    for i in range(n, 10):
         print('Corriendo n='+str(i))
         city.agregarRedAbierta(i)
         city.agregarRedCerrada(i)
@@ -171,10 +204,10 @@ for g in range(0, 1):
 
     #Crear Graficos
     for nred in range(3, 3+len(city.red['Abierta'])):
-        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V5.0_BaseNewK_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
+        crearExcelRed(city.red['Abierta'][nred-3], 'Resultados_V5.0_SensibilidadGeom_'+str(g)+'_Abierta_n'+str(len(city.red['Abierta'][nred-3].lineas)))
     for nred in range(3, 3+len(city.red['Cerrada'])):
-        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V5.0_BaseNewK_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
-    crearExcelnLineas('nLineasResultados_V4.0_Sensibilidad_Theta_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
+        crearExcelRed(city.red['Cerrada'][nred-3], 'Resultados_V5.0_SensibilidadGeom_'+str(g)+'_Cerrada_n'+str(len(city.red['Cerrada'][nred-3].lineas)))
+    crearExcelnLineas('nLineasResultados_V5.0_SensibilidadGeom_'+str(g), ('n', Varn), VarCT, VarCO, VarTV, VarTA, VarTE, VarTT, VarDT, VarQT, VarTcD, VarTsD, VarFD, VarTP, VarTM)
     #ciudades.append(city)
 #crearExcelCiudades(ciudades)
 

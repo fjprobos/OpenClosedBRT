@@ -360,10 +360,11 @@ def numeroMicrozonas(R1, beta, beta1, n):
             nEfectivoCBD = i
             distMin = dist
     nEfectivoCBD = max(nEfectivoCBD, 1)
-    n0 = max(int(round(float(beta1)/float(beta)*float(n))), 1)
+    n0 = min(max(int(round(float(beta1)/float(beta)*float(n))), 1), n - nEfectivoCBD)
     nf = n-n0-nEfectivoCBD
-    assert nf >= 0, 'nf es menor a 0'
-    return (n0, nEfectivoCBD, nf)
+    assert nf >= 0, 'nf o n0 es menor a 0'
+    return n0, nEfectivoCBD, nf
+
 
 
 def fo(red):
